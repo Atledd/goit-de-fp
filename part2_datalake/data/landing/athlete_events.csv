@@ -1,0 +1,6 @@
+athlete_id,name,sex,country_noc,sport,medal,height,weight
+1,John Smith,M,USA,Swimming,Gold,180,75
+2,Anna Brown,F,UK,Athletics,Silver,165,55
+3,Mike Johnson,M,USA,Swimming,Bronze,190,85
+4,Sara Lee,F,CAN,Running,Gold,170,60
+5,Tom White,M,GER,Cycling,,185,80
