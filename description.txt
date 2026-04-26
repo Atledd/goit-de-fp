@@ -1,0 +1,21 @@
+Part 1 Streaming Pipeline:
+Розгорнуто середовище з Apache Kafka, Zookeeper та MySQL через Docker Compose.
+Створено наступні Kafka topics: athlete_event_results, athlete_stats_enriched.
+Реалізовано producer на Python, що зчитує дані спортсменів з MySQL (athlete_event_results) та надсилає їх у Kafka topic.
+Реалізовано Spark Structured Streaming pipeline, що читає події з Kafka, збагачує дані через join з таблицею athlete_bio з MySQL, обчислює агреговані показники (average height/weight), записує результати у Kafka topic athlete_stats_enriched,
+у MySQL таблицю athlete_stats_enriched.
+Перевірено коректність роботи pipeline через:
+1) консюмер Kafka;
+2) Spark batch output;
+3) результати в MySQL.
+  
+Part 2 Data Lake + Airflow
+Реалізовано Data Lake з такими шарами:
+Landing
+Bronze
+Silver
+Gold
+Створено Spark ETL скрипти landing_to_bronze.py, bronze_to_silver.py, silver_to_gold.py
+Реалізовано очищення даних та агрегацію в Gold layer.
+Побудовано Airflow DAG olympic_datalake_pipeline з трьома послідовними тасками: landing_to_bronze, bronze_to_silver, silver_to_gold.
+І в кінці перевірено виконання DAG та роботу пайплайну.
